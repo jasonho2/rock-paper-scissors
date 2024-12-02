@@ -7,3 +7,14 @@ function getComputerChoice() {
     return choices[randomIndex];
 }
 
+function getHumanChoice() {
+    const choices = ["rock", "paper", "scissors"];
+    let choice = prompt("Choose rock, paper, or scissors").toLowerCase();
+    if (choices.includes(choice)) {
+        console.log(choice);
+    }
+    else {
+        console.log("Not a valid choice. Try again.")
+        getHumanChoice();
+    }
+}
