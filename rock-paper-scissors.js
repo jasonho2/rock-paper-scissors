@@ -1,13 +1,16 @@
 console.log("Hello, World!");
 
 function getComputerChoice() {
+    
     const choices = ["rock", "paper", "scissors"];
     const randomIndex = Math.floor((Math.random() * 3));
 
     return choices[randomIndex];
+
 }
 
 function getHumanChoice() {
+    
     const choices = ["rock", "paper", "scissors"];
     let choice = prompt("Choose rock, paper, or scissors").toLowerCase();
     if (choices.includes(choice)) {
@@ -17,12 +20,11 @@ function getHumanChoice() {
         console.log("Not a valid choice. Try again.")
         getHumanChoice();
     }
+
 }
 
-let computerScore = 0;
-let humanScore = 0;
-
 function playRound(humanChoice, computerChoice) {
+    
     console.log("Computer choice: ", computerChoice);
     console.log("Your choice: ", humanChoice);
     if (humanChoice === computerChoice) {
@@ -67,9 +69,18 @@ function playRound(humanChoice, computerChoice) {
             humanScore += 1;
         }
     }
+
 }
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
+
+function playGame(numRounds) {
+
+    let computerScore = 0;
+    let humanScore = 0;
+
+    
+}
