@@ -1,5 +1,3 @@
-console.log("Hello, World!");
-
 function getComputerChoice() {
     
     const choices = ["rock", "paper", "scissors"];
@@ -91,8 +89,8 @@ function playGame(numRounds) {
         const computerSelection = getComputerChoice();
 
         playRound(humanSelection, computerSelection);
-        console.log(humanScore);
-        console.log(computerScore);
+        console.log("Human score: ", humanScore);
+        console.log("Computer score: ", computerScore);
     }
 
     if (computerScore === humanScore) {
