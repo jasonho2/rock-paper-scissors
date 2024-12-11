@@ -6,7 +6,7 @@ function getComputerChoice() {
     return choices[randomIndex];
 
 }
-
+/*
 function getHumanChoice() {
     
     const choices = ["rock", "paper", "scissors"];
@@ -16,16 +16,6 @@ function getHumanChoice() {
     while (choice !== "rock" && choice !== "paper" && choice !== "scissors") {
         choice = prompt("Invalid choice. Please enter rock, paper, or scissors").toLowerCase();
     }
-
-    /*
-    if (choices.includes(choice)) {
-        return choice;
-    }
-    else {
-        console.log("Not a valid choice. Try again.")
-        getHumanChoice();
-    }
-    */
 
     return choice;
 
@@ -108,3 +98,5 @@ function playGame(numRounds) {
 let numRounds = prompt("Enter the number of rounds of Rock, Paper, Scissors you would like to play.");
 
 playGame(numRounds);
+
+*/
