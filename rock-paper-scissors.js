@@ -83,6 +83,7 @@ let humanScore = 0;
 // display scores, updates within the click event listener
 const results = document.createElement("p");
 results.textContent = `Your score: ${humanScore}\nComputer score: ${computerScore}`;
+results.setAttribute("style", "font-size: 24px; font-weight: bold;");
 document.body.appendChild(results);
 
 // attaching listeners to group of buttons
@@ -98,15 +99,10 @@ buttons.forEach((button) => {
         computerSelection = getComputerChoice();
 
         // create divs for displaying results
-        const resultHumanSelection = document.createElement("div");
-        resultHumanSelection.textContent = 'Your selection: ' + humanSelection + '.';
+        const resultSelections = document.createElement("div");
+        resultSelections.textContent = `Your selection: ${humanSelection}.\nComputer selection: ${computerSelection}.`;
         // append to webpage body
-        document.body.appendChild(resultHumanSelection);
-
-        const resultComputerSelection = document.createElement("div");
-        resultComputerSelection.textContent = 'Computer selection: ' + computerSelection + '.';
-        // append to webpage body
-        document.body.appendChild(resultComputerSelection);
+        document.body.appendChild(resultSelections);
 
         // call playRound
         playRound(humanSelection, computerSelection);
