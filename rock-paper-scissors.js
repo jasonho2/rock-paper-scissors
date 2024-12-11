@@ -100,3 +100,20 @@ let numRounds = prompt("Enter the number of rounds of Rock, Paper, Scissors you 
 playGame(numRounds);
 
 */
+
+// create buttons
+const rockButton = document.createElement("button");
+rockButton.textContent = "rock";
+// append button to body
+document.body.appendChild(rockButton);
+
+const paperButton = document.createElement("button");
+paperButton.textContent = "paper";
+// append button to body
+document.body.appendChild(paperButton);
+
+const scissorsButton = document.createElement("button");
+scissorsButton.textContent = "scissors";
+// append button to body
+document.body.appendChild(scissorsButton);
+
