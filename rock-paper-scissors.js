@@ -20,8 +20,9 @@ function getHumanChoice() {
     return choice;
 
 }
-
-function playGame(numRounds) {
+*/
+/*
+function playGame() {
 
     let computerScore = 0;
     let humanScore = 0;
@@ -94,12 +95,60 @@ function playGame(numRounds) {
     }
 
 }
-
-let numRounds = prompt("Enter the number of rounds of Rock, Paper, Scissors you would like to play.");
-
-playGame(numRounds);
-
 */
+
+// let numRounds = prompt("Enter the number of rounds of Rock, Paper, Scissors you would like to play.");
+
+// playGame(numRounds);
+
+// function for playing each round
+function playRound(humanChoice, computerChoice) {
+    
+    console.log("Computer choice: ", computerChoice);
+    console.log("Your choice: ", humanChoice);
+
+    if (humanChoice === computerChoice) {
+        //console.log("Tie. Choose again.");
+        alert("Tie. You both picked " + humanChoice + ".");
+    }
+    else if (humanChoice === 'rock') {
+        if (computerChoice === 'paper') {
+            //console.log("You lose! Paper beats Rock.");
+            alert("You lose! Paper beats Rock.");
+            computerScore += 1;
+        }
+        else {
+            //console.log("You win! Rock beats Scissors.");
+            alert("You win! Rock beats Scissors.");
+            humanScore += 1;
+        }
+    }
+    else if (humanChoice === 'paper') {
+        if (computerChoice === 'scissors') {
+            //console.log("You lose! Scissors beats Paper.");
+            alert("You lose! Scissors beats Paper.");
+            computerScore += 1;
+        }
+        else {
+            //console.log("You win! Paper beats Rock.");
+            alert("You win! Paper beats Rock.");
+            humanScore += 1;
+        }
+    }
+    else { // scissors
+        if (computerChoice === 'rock') {
+            //console.log("You lose! Rock beats Scissors.");
+            alert("You lose! Rock beats Scissors.");
+            computerScore += 1;
+        }
+        else {
+            //console.log("You win! Scissors beats Paper.");
+            alert("You win! Scissors beats Paper.");
+            humanScore += 1;
+        }
+    }
+
+}
 
 // create buttons
 const rockButton = document.createElement("button");
@@ -117,3 +166,25 @@ scissorsButton.textContent = "scissors";
 // append button to body
 document.body.appendChild(scissorsButton);
 
+// initialize human and computer scores
+let computerScore = 0;
+let humanScore = 0;
+
+// attaching listeners to group of buttons
+// buttons is a node list. It looks and acts much like an array.
+const buttons = document.querySelectorAll("button");
+
+// we use the .forEach method to iterate through each button
+buttons.forEach((button) => {
+    // and for each one we add a 'click' listener
+    button.addEventListener("click", () => {
+        //alert(button.textContent);
+        humanSelection = button.textContent;
+        computerSelection = getComputerChoice();
+        console.log(humanSelection);
+        console.log(computerSelection);
+        playRound(humanSelection, computerSelection);
+        console.log(humanScore);
+        console.log(computerScore);
+    });
+});
