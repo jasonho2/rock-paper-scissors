@@ -9,9 +9,6 @@ function getComputerChoice() {
 
 // function for playing each round
 function playRound(humanChoice, computerChoice) {
-    
-    console.log("Computer choice: ", computerChoice);
-    console.log("Your choice: ", humanChoice);
 
     if (humanChoice === computerChoice) {
         const result = document.createElement("div");
@@ -83,17 +80,22 @@ document.body.appendChild(scissorsButton);
 let computerScore = 0;
 let humanScore = 0;
 
+// display scores, updates within the click event listener
+const results = document.createElement("p");
+results.textContent = `Your score: ${humanScore}\nComputer score: ${computerScore}`;
+document.body.appendChild(results);
+
 // attaching listeners to group of buttons
 // buttons is a node list. It looks and acts much like an array.
 const buttons = document.querySelectorAll("button");
 
 // we use the .forEach method to iterate through each button
 buttons.forEach((button) => {
+
     // and for each one we add a 'click' listener
     button.addEventListener("click", () => {
         humanSelection = button.textContent;
         computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
 
         // create divs for displaying results
         const resultHumanSelection = document.createElement("div");
@@ -106,10 +108,11 @@ buttons.forEach((button) => {
         // append to webpage body
         document.body.appendChild(resultComputerSelection);
 
-        // display scores
-        const results = document.createElement("p");
+        // call playRound
+        playRound(humanSelection, computerSelection);
+
+        // update scores
         results.textContent = `Your score: ${humanScore}\nComputer score: ${computerScore}`;
-        document.body.appendChild(results);
 
         // inform winner
         if (humanScore === 5) {
